@@ -13,6 +13,8 @@ export default {
         "card-content-secondary": "rgba(9, 8, 15, 0.6)",
         primary: "rgb(149, 56, 226)",
         "primary-content": "rgb(255, 255, 255)",
+        "banner-content": "rgb(255, 255, 255)",
+        "banner-content-secondary": "rgb(255, 255, 255)",
       },
     },
   },
