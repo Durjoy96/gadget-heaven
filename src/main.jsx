@@ -7,6 +7,7 @@ import Root from "./routes/Root";
 import ErrorPage from "./routes/ErrorPage";
 import Statistics from "./routes/Statistics";
 import Home from "./routes/Home";
+import Dashboard from "./routes/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/statistics",
         element: <Statistics></Statistics>,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
       },
     ],
   },

@@ -6,7 +6,8 @@ export default {
       fontFamily: { sora: ["Sora", "sans-serif"] },
       colors: {
         "base-100": "rgb(255, 255, 255)",
-        "base-200": "rgba(9, 8, 15, 0.05)",
+        "base-200": "rgb(247, 247, 247)",
+        "base-300": "rgba(9, 8, 15, 0.05)",
         "base-content": "rgb(11, 11, 11)",
         "base-content-secondary": "rgba(9, 8, 15, 0.6)",
         "card-content": "rgb(9, 8, 15)",

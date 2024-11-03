@@ -23,15 +23,27 @@ const Navbar = () => {
     setHome(location.pathname === "/");
   }, [location]);
 
+  //toggle navbar menu button
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className={`max-w-screen-xl mx-auto px-5 ${isHome ? "pt-10" : ""} `}>
-      <div className={`navbar ${isHome ? "bg-primary" : "bg-base-100"}`}>
+    <div
+      className={`max-w-screen-xl mx-auto px-5 z-20 relative ${
+        isHome ? "px-12 pt-10" : ""
+      } `}
+    >
+      <div className="navbar bg-transparent">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost lg:hidden"
+              onClick={() => setIsOpen(!isOpen)}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -44,17 +56,21 @@ const Navbar = () => {
                 />
               </svg>
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-              {NavPages.map((item, idx) => (
-                <NavPage key={idx} item={item}></NavPage>
-              ))}
-            </ul>
+            {isOpen ? (
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-1 w-32 p-2 shadow"
+              >
+                {NavPages.map((item, idx) => (
+                  <NavPage key={idx} item={item}></NavPage>
+                ))}
+              </ul>
+            ) : (
+              ""
+            )}
           </div>
           <Link
-            className={`text-xl font-bold ${
+            className={`text-lg font-bold md:text-xl ${
               isHome ? "text-banner-content" : "text-base-content"
             }`}
             to="/"
