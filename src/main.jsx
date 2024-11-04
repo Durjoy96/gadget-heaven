@@ -30,6 +30,7 @@ const router = createBrowserRouter([
           {
             path: "/smartphones",
             element: <Smartphones></Smartphones>,
+            loader: () => fetch("/gadgetsData.json"),
           },
         ],
       },
