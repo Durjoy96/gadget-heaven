@@ -11,6 +11,7 @@ import Dashboard from "./routes/Dashboard";
 import AllProducts from "./routes/Home/AllProducts";
 import Smartphones from "./routes/Home/Smartphones";
 import Details from "./components/DisplayProducts/Details";
+import Laptops from "./routes/Home/Laptops";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
           {
             path: "/smartphones",
             element: <Smartphones></Smartphones>,
+            loader: () => fetch("/gadgetsData.json"),
+          },
+          {
+            path: "/laptops",
+            element: <Laptops></Laptops>,
             loader: () => fetch("/gadgetsData.json"),
           },
         ],
