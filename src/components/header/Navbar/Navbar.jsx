@@ -20,7 +20,13 @@ const Navbar = () => {
   const location = useLocation();
   const [isHome, setHome] = useState(false);
   useEffect(() => {
-    setHome(location.pathname === "/");
+    setHome(
+      location.pathname === "/" ||
+        location.pathname === "/smartphones" ||
+        location.pathname === "/laptops" ||
+        location.pathname === "/headphones" ||
+        location.pathname === "/monitors"
+    );
   }, [location]);
 
   //toggle navbar menu button
@@ -29,7 +35,7 @@ const Navbar = () => {
   return (
     <div
       className={`max-w-screen-xl mx-auto px-5 z-20 relative ${
-        isHome ? "px-12 pt-10" : ""
+        isHome ? "pr-12 pt-10 lg:px-12" : ""
       } `}
     >
       <div className="navbar bg-transparent">

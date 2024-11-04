@@ -6,8 +6,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import ErrorPage from "./routes/ErrorPage";
 import Statistics from "./routes/Statistics";
-import Home from "./routes/Home";
+import Home from "./routes/Home/Home";
 import Dashboard from "./routes/Dashboard";
+import AllProducts from "./routes/Home/AllProducts";
+import Smartphones from "./routes/Home/Smartphones";
+import Details from "./components/header/DisplayProducts/Details";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +21,17 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        children: [
+          {
+            path: "/",
+            element: <AllProducts></AllProducts>,
+            loader: () => fetch("/gadgetsData.json"),
+          },
+          {
+            path: "/smartphones",
+            element: <Smartphones></Smartphones>,
+          },
+        ],
       },
       {
         path: "/statistics",
@@ -26,6 +40,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/details/:productId",
+        element: <Details></Details>,
+        loader: () => fetch("/gadgetsData.json"),
       },
     ],
   },

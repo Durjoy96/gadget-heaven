@@ -94,7 +94,7 @@
     "product_title": "Huawei P40 Pro",
     "product_image": "https://www.mobiledokan.co/wp-content/uploads/2020/03/Huawei-P40-Black-500x500.jpg",
     "category": "Smartphone",
-    "price": 699,
+    "price": 499,
     "description": "Huawei P40 Pro with 8GB RAM, 256GB storage, and 50MP Ultra Vision camera.",
     "Specification": [
       "8GB RAM",
@@ -162,7 +162,7 @@
   },
   {
     "product_id": 10,
-    "product_title": "Bose QuietComfort 35 II",
+    "product_title": "Bose 35 II",
     "product_image": "https://www.startech.com.bd/image/cache/catalog/headphone/bose/quietcomfort-45/quietcomfort-45-01-500x500.webp",
     "category": "Headphones",
     "price": 299,
