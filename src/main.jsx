@@ -12,6 +12,8 @@ import AllProducts from "./routes/Home/AllProducts";
 import Smartphones from "./routes/Home/Smartphones";
 import Details from "./components/DisplayProducts/Details";
 import Laptops from "./routes/Home/Laptops";
+import Headphones from "./routes/Home/Headphones";
+import Monitors from "./routes/Home/Monitors";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,16 @@ const router = createBrowserRouter([
           {
             path: "/laptops",
             element: <Laptops></Laptops>,
+            loader: () => fetch("/gadgetsData.json"),
+          },
+          {
+            path: "/headphones",
+            element: <Headphones></Headphones>,
+            loader: () => fetch("/gadgetsData.json"),
+          },
+          {
+            path: "/monitors",
+            element: <Monitors></Monitors>,
             loader: () => fetch("/gadgetsData.json"),
           },
         ],
