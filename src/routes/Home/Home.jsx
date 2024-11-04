@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "../../components/header/Banner/Banner";
-import Categories from "../../components/header/DisplayProducts/Categories";
+import Categories from "../../components/DisplayProducts/Categories";
 import { Outlet } from "react-router-dom";
 
 const Home = () => {

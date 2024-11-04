@@ -10,7 +10,7 @@ import Home from "./routes/Home/Home";
 import Dashboard from "./routes/Dashboard";
 import AllProducts from "./routes/Home/AllProducts";
 import Smartphones from "./routes/Home/Smartphones";
-import Details from "./components/header/DisplayProducts/Details";
+import Details from "./components/DisplayProducts/Details";
 
 const router = createBrowserRouter([
   {

@@ -1,5 +1,5 @@
 import React from "react";
-import Products from "../../components/header/DisplayProducts/Products";
+import Products from "../../components/DisplayProducts/Products";
 
 const Smartphones = () => {
   return (
