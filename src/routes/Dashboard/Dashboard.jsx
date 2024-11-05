@@ -1,12 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Cart from "./Cart";
 import WishList from "./WishList";
-import { sendWishlistData } from "../Root";
 
 const Dashboard = () => {
   const [activeBtn, setActiveBtn] = useState("cart");
-  const wishlistData = useContext(sendWishlistData);
-  console.log("w", wishlistData);
 
   return (
     <>
