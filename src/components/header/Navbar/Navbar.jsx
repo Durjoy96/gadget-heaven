@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NavPage from "./NavPage";
 import { IoCartOutline } from "react-icons/io5";
 import { GoHeart } from "react-icons/go";
 import { Link, useLocation } from "react-router-dom";
+import { sendAddToCardData, sendWishlistData } from "../../../routes/Root";
 
 const Navbar = () => {
+  const cartData = useContext(sendAddToCardData);
+  const wishlistData = useContext(sendWishlistData);
+
   const NavPages = [
     { path: "/", name: "Home" },
     {
@@ -92,12 +96,22 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-4">
-          <a className="btn btn-circle">
-            <IoCartOutline className="w-6 h-6 fill-base-content" />
-          </a>
-          <a className="btn btn-circle">
-            <GoHeart className="w-6 h-6 fill-base-content" />
-          </a>
+          <div className="relative">
+            <span className="z-10 inline-block absolute top-0 -right-3 bg-primary text-primary-content px-2 rounded-full border">
+              {cartData.length}
+            </span>
+            <a className="btn btn-circle">
+              <IoCartOutline className="w-6 h-6 fill-base-content" />
+            </a>
+          </div>
+          <div className="relative">
+            <span className="z-10 inline-block absolute top-0 -right-3 bg-primary text-primary-content px-2 rounded-full border">
+              {wishlistData.length}
+            </span>
+            <a className="btn btn-circle">
+              <GoHeart className="w-6 h-6 fill-base-content" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
