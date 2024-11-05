@@ -1,8 +1,11 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import { GoHeart } from "react-icons/go";
 import { IoCartOutline } from "react-icons/io5";
+import { addToCardContext } from "../../routes/Root";
+import { wishlistContext } from "../../routes/Root";
+import { toast } from "react-toastify";
 
 const Details = () => {
   const data = useLoaderData();
@@ -22,14 +25,27 @@ const Details = () => {
     product_id,
     product_title,
     product_image,
-    category,
     price,
     description,
     Specification,
     availability,
     rating,
-    other_field,
   } = newData;
+
+  const AddToCartBtn = useContext(addToCardContext);
+
+  const AddToCardBtnHandler = (newData) => {
+    AddToCartBtn(newData);
+    toast.success("Added to the cart!");
+  };
+
+  const wishlistBtn = useContext(wishlistContext);
+
+  const wishlistBtnHandler = (newData, event) => {
+    wishlistBtn(newData);
+    toast.success("Added to the wishlist!");
+    event.target.parentElement.setAttribute("disabled", "true");
+  };
 
   return (
     <div>
@@ -43,7 +59,7 @@ const Details = () => {
         </p>
       </div>
       <div className="bg-base-100 rounded-3xl absolute top-60 left-0 right-0 mx-auto max-w-screen-xl">
-        <div className="p-8 grid grid-cols-1 md:grid-cols-[.3fr_1fr]">
+        <div className="p-8 grid gap-6 grid-cols-1 md:grid-cols-[.3fr_1fr]">
           <div>
             <img src={product_image} alt="" />
           </div>
@@ -91,10 +107,16 @@ const Details = () => {
               </span>
             </div>
             <div className="flex gap-6 mt-4">
-              <button className="flex items-center gap-2 px-6 py-1 rounded-full bg-primary text-lg font-bold text-primary-content border-2 border-primary hover:text-primary hover:bg-primary-content">
+              <button
+                onClick={() => AddToCardBtnHandler(newData)}
+                className="flex items-center gap-2 px-6 py-1 rounded-full bg-primary text-lg font-bold text-primary-content border-2 border-primary hover:text-primary hover:bg-primary-content"
+              >
                 Add To Card <IoCartOutline />
               </button>
-              <button className="p-3 rounded-full border-2 bg-base-200 hover:bg-base-300">
+              <button
+                onClick={() => wishlistBtnHandler(newData, event)}
+                className="p-3 rounded-full border-2 bg-base-200 hover:bg-base-300 disabled:bg-base-300 disabled:cursor-no-drop"
+              >
                 <GoHeart className="w-6 h-6 stroke-card-content-secondary" />
               </button>
             </div>

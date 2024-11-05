@@ -7,13 +7,15 @@ import Root from "./routes/Root";
 import ErrorPage from "./routes/ErrorPage";
 import Statistics from "./routes/Statistics";
 import Home from "./routes/Home/Home";
-import Dashboard from "./routes/Dashboard";
+import Dashboard from "./routes/Dashboard/Dashboard";
 import AllProducts from "./routes/Home/AllProducts";
 import Smartphones from "./routes/Home/Smartphones";
 import Details from "./components/DisplayProducts/Details";
 import Laptops from "./routes/Home/Laptops";
 import Headphones from "./routes/Home/Headphones";
 import Monitors from "./routes/Home/Monitors";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +73,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <ToastContainer position="top-right" autoClose={3000} />
     <RouterProvider router={router}></RouterProvider>
   </StrictMode>
 );
