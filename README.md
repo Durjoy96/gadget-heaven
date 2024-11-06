@@ -1,11 +1,14 @@
-# Live Link 
+# Live Link
+
+https://past-cobweb.surge.sh/
 
 # Requirement Doc Link
-[https://github.com/ProgrammingHero1/B10-A8-gadget-heaven/blob/cb107cb186465d2189e83f743d16aa13a0cb206e/Batch-10_Assignment-08.pdf]
+
+https://github.com/ProgrammingHero1/B10-A8-gadget-heaven/blob/cb107cb186465d2189e83f743d16aa13a0cb206e/Batch-10_Assignment-08.pdf
 
 # React Fundamental concepts used in the project
 
-- components 
+- components
 - jsx (JavaScript XML)
 - useState
 - useEffect
@@ -23,4 +26,3 @@
 3. sort the Cart items by price in descending order
 4. Nested routes for each category
 5. Responsive UI
-
