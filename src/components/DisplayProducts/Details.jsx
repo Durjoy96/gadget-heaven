@@ -7,6 +7,7 @@ import { addToCardContext } from "../../routes/Root";
 import { wishlistContext } from "../../routes/Root";
 import { toast } from "react-toastify";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { sendWishlistData } from "../../routes/Root";
 
 const Details = () => {
   const data = useLoaderData();
@@ -37,16 +38,21 @@ const Details = () => {
 
   const AddToCardBtnHandler = (newData) => {
     AddToCartBtn(newData);
-    toast.success("Added to the cart!");
+    toast.success("Successfully added to your cart!");
   };
 
   const wishlistBtn = useContext(wishlistContext);
+  const wishlistData = useContext(sendWishlistData);
   const [isDisabled, setIsDisabled] = useState(false);
 
   const wishlistBtnHandler = (newData) => {
-    wishlistBtn(newData);
-    toast.success("Added to the wishlist!");
-    setIsDisabled(true);
+    if (wishlistData.find((item) => item.product_id === newData.product_id)) {
+      toast.error("It's already on your wishlist!");
+      setIsDisabled(true);
+    } else {
+      wishlistBtn(newData);
+      toast.success("Successfully added to your wishlist!");
+    }
   };
 
   return (
