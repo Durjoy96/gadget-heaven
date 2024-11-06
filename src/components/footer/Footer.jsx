@@ -21,13 +21,15 @@ const Footer = () => {
   ];
 
   const location = useLocation();
-  console.log();
 
   return (
     <footer
       className={`bg-base-100 py-12 lg:py-24 ${
-        location.pathname.includes("details")
-          ? "mt-[710px] md:mt-[400px] lg:mt-[450px]"
+        location.pathname.includes("details") ||
+        location.pathname.includes("request")
+          ? location.pathname.includes("request")
+            ? "mt-[900px] lg:mt-[1000px]"
+            : "mt-[710px] md:mt-[400px] lg:mt-[450px]"
           : "mt-12 lg:mt-24"
       }`}
     >

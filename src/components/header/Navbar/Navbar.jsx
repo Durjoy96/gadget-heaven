@@ -19,6 +19,10 @@ const Navbar = () => {
       path: "/dashboard",
       name: "Dashboard",
     },
+    {
+      path: "/request-product",
+      name: "Request Product",
+    },
   ];
 
   const location = useLocation();

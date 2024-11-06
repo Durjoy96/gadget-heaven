@@ -16,6 +16,7 @@ import Headphones from "./routes/Home/Headphones";
 import Monitors from "./routes/Home/Monitors";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Request from "./routes/Request";
 
 const router = createBrowserRouter([
   {
@@ -67,13 +68,17 @@ const router = createBrowserRouter([
         element: <Details></Details>,
         loader: () => fetch("/gadgetsData.json"),
       },
+      {
+        path: "/request-product",
+        element: <Request></Request>,
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ToastContainer position="top-right" autoClose={3000} />
+    <ToastContainer position="bottom-right" autoClose={3000} theme="dark" />
     <RouterProvider router={router}></RouterProvider>
   </StrictMode>
 );
